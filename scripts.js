@@ -15,6 +15,11 @@ const getRandomWords = () => {
     }
 }
 
+const capitalize = (s) => {
+    if (typeof s !== 'string') return ''
+    return s.charAt(0).toUpperCase() + s.slice(1)
+}
+
 // Create board
 const createBoard = () => {
     const container = document.getElementById('container');
@@ -31,9 +36,11 @@ const createBoard = () => {
 // Flip Card
 
 const flipCard = (card) => {
-    card.classList.add('flipped');
+    card.classList.add('flipped');    
+    
     if (card.getAttribute('team') === 'assassin') {
-        alert(`${currentPlayer} LOST`);
+        let capitalizedTeam = capitalize(currentPlayer);
+        alert(`${capitalizedTeam} Lost ☠️`);
     } else {
         checkScore();
     }
@@ -58,7 +65,8 @@ const assignCards = () => {
 
     let unassignedTeamCards = cardsPerTeam; 
     let unassignedAssassinCards = assassinCards;
-    let target = 0; 
+    let target = 0;
+    
     teams.forEach(team => {
         if (team === currentPlayer) {
             target = 0;
@@ -70,7 +78,6 @@ const assignCards = () => {
             if (cards[randomNumber].getAttribute('team') === null ) {
                 cards[randomNumber].setAttribute('team', `${team}`)
                 cards[randomNumber].classList.add(`${team}`)
-                // cards[randomNumber].style.color = `${team}`, 
                 unassignedTeamCards -= 1;
             }
         }
@@ -82,7 +89,6 @@ const assignCards = () => {
         if (cards[randomNumber].getAttribute('team') === null ) {
             cards[randomNumber].setAttribute('team', 'assassin');
             cards[randomNumber].classList.add('assassin')
-            // cards[randomNumber].style.color = 'purple', 
             unassignedAssassinCards -= 1;
         }
     }
@@ -112,9 +118,9 @@ const checkScore = () => {
 
     //Check for win
     if ( unflippedA.length === 0 ) {
-        alert('TEAM A WON');
+        alert('Team Blue Won 🎉');
     } else if ( unflippedB.length === 0 ) {
-        alert('TEAM B WON');
+        alert('Team Red Won 🎉');
     }
 }
 
