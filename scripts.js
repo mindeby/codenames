@@ -47,8 +47,14 @@ const flipCard = (card) => {
 const teams = ['blue', 'red'];
 let currentPlayer = teams[Math.floor(Math.random() * (teams.length))];
 document.getElementById('currentPlayer').innerText += currentPlayer;
-const cardsPerTeam = 9; 
-const assassinCards = 1; 
+const cardsPerTeam = 9;
+const assassinCards = 1;
+
+if (currentPlayer == "blue") {
+    document.getElementById("teamA").classList.add('active-turn');   
+} else {
+    document.getElementById("teamB").classList.add('active-turn');   
+}
 
 const assignCards = () => {
     const cards = document.querySelectorAll('.card');

@@ -39,6 +39,9 @@ h1 {
 }
 
 .card {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	position: relative;
 	list-style: none;
 	background: #fff;
