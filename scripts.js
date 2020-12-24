@@ -68,7 +68,8 @@ const assignCards = () => {
             let randomNumber = Math.floor(Math.random() * (cards.length - 1)); 
             if (cards[randomNumber].getAttribute('team') === null ) {
                 cards[randomNumber].setAttribute('team', `${team}`)
-                cards[randomNumber].style.color = `${team}`, 
+                cards[randomNumber].classList.add(`${team}`)
+                // cards[randomNumber].style.color = `${team}`, 
                 unassignedTeamCards -= 1;
             }
         }
@@ -79,7 +80,8 @@ const assignCards = () => {
         let randomNumber = Math.floor(Math.random() * (cards.length - 1)); 
         if (cards[randomNumber].getAttribute('team') === null ) {
             cards[randomNumber].setAttribute('team', 'assassin');
-            cards[randomNumber].style.color = 'purple', 
+            cards[randomNumber].classList.add('assassin')
+            // cards[randomNumber].style.color = 'purple', 
             unassignedAssassinCards -= 1;
         }
     }
