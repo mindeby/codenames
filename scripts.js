@@ -2,6 +2,7 @@
 const words = ['atlantis', 'noite', 'roma', 'lago', 'redondo', 'hotel', 'sitio', 'coroa', 'caixa', 'calças', 'comboio', 'piramide', 'telescopio', 'veneno', 'soldado', 'bruxa', 'chao', 'cenoura', 'advogado', 'danca', 'ninja', 'botao', 'cauda', 'aranha', 'pau', 'penguim', 'traseira', 'america', 'agua', 'papel', 'menta', 'missil', 'embaixada', 'pistola', 'cientista', 'kiwi', 'correio', 'genio', 'ladrao', 'lesma', 'estado', 'cama', 'espiao', 'narrativa', 'inglaterra', 'templo', 'maça', 'oleo', 'cozinheiro','voar', 'urso', 'pin', 'cheque', 'bar', 'frio', 'hollywood', 'ecra', 'jogar', 'dinossauro', 'gato', 'jogo', 'vida', 'sorte', 'gancho', 'cobre', 'alma', 'canada', 'concerto', 'chocolate', 'jet', 'shakespeare', 'carro', 'sombra', 'luva', 'milionario', 'bomba', 'casino', 'arranha-ceus', 'acçoes','escova', 'relva', 'saturno', 'vestido', 'ventoinha', 'anao', 'alien', 'chicote', 'antartica', 'abobora', 'moscovo', 'viagem', 'floresta', 'capital', 'foca', 'lua', 'bloco', 'peixe', 'tubo', 'ferro', 'doutor', 'roleta', 'nivel', 'acordar', 'agulha', 'linha', 'guerra', 'mel', 'compota', 'banco', 'mesa', 'espinha', 'veterinario', 'capa', 'raio', 'belt', 'coelho', 'agente', 'baleia', 'presunto', 'bateria', 'penhasco', 'faixa', 'igreja', 'tablet', 'tarte', 'verde', 'dragao', 'nova-iorque', 'australia', 'março', 'gota', 'baralho', 'quintal', 'estrela', 'ponte', 'fogo', 'anel', 'tampa', 'limao', 'enfermeira', 'vento', 'leao', 'londres', 'outono', 'bota', 'dados', 'olho', 'tabuleiro', 'interruptor', 'bermuda', 'mudança', 'tokyo', 'egipto', 'batimento', 'coraçao', 'corno', 'primavera', 'ar', 'jupiter', 'tempo', 'ouro', 'carregar', 'alpes', 'clube', 'figura', 'cao', 'mergulhador', 'lochness', 'cano', 'prego', 'torneira', 'garfo', 'sapato', 'massa', 'porto', 'baloiço', 'gelo', 'servidor', 'china','berlim', 'meia', 'cavalo', 'quadrado', 'centro'];
 
 const numberOfCards = 25;
+let isAnswerVisible = false;
 
 let randomWords = [];
 
@@ -132,6 +133,20 @@ document.getElementById('endTurn').addEventListener("click", function(){
     }
 })
 
+document.getElementById('showAnswers').addEventListener("click", function(){ 
+    const board = document.getElementById('board');
+
+    if (isAnswerVisible) {
+        board.classList.remove("answersVisible");
+        isAnswerVisible = false;
+        this.innerText="Show Answers (captains only)";
+        
+    } else {
+        board.classList.add("answersVisible");
+        isAnswerVisible = true;
+        this.innerText="Hide Answers (captains only)";
+    }   
+})
 
 getRandomWords();
 createBoard();

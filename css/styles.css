@@ -64,6 +64,9 @@ h1 {
 	cursor: pointer;
 }
 
+.board.answersVisible .card.red,
+.board.answersVisible .card.blue,
+.board.answersVisible .card.assassin,
 .card.red.flipped,
 .card.blue.flipped,
 .card.assassin.flipped {
@@ -71,14 +74,17 @@ h1 {
 	text-shadow: 0 2px 4px rgba(0,0,0,0.20);
 }
 
+.board.answersVisible .card.red,
 .card.red.flipped {
 	background: linear-gradient(170deg, #ff0002, #c40038);
 }
 
+.board.answersVisible .card.blue,
 .card.blue.flipped {
 	background: linear-gradient(170deg, #006dff, #1700c4);
 }
 
+.board.answersVisible .card.assassin,
 .card.assassin.flipped {
 	background: linear-gradient(170deg, #414141, #050505);
 }
@@ -227,7 +233,7 @@ h1 {
 }
 
 
-button {
+.hud button {
 	display: block;
 	position: relative;
 	background: white;
@@ -244,9 +250,21 @@ button {
 
 button:hover {
 	cursor: pointer;
-	transform: scale(1.1);
+	transform: scale(1.05);
 }
 
 #currentPlayer {
 	display: none;
+}
+
+#showAnswers {
+	position: absolute;
+	top: 1vw;
+	right: 1vw;
+	background: rgba(255,255,255,0.1);
+	color: #fff;
+	border: none;
+	padding: 4px 8px;
+	border-radius: 8px;
+	transition: transform 0.1s;
 }
