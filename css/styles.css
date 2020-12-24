@@ -1,11 +1,9 @@
-////////////////////////////////////////////
-//                                        //
-//              Harry Styles              //
-//                                        //
-////////////////////////////////////////////
 
 body {
-	background: radial-gradient(#f2ca0f, #5a0032);
+	min-width: 100vw;
+	min-height: 100vh;
+	background: radial-gradient(closest-side, #f2ca0f 22.69%, #ec7e20 49.16%, #7a0b3e 85.29%, #610037);
+	font-family: "Futura";
 }
 
 ul {
@@ -13,9 +11,53 @@ ul {
 	padding: 0;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-template-rows: auto auto auto auto auto;
+	gap: 16px 16px;
+	padding: 40px;
+}
+
+h1 {
+	font-size: 4vw;
+	color: #000;
+	text-transform: uppercase;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: white;
+	margin: 0;
+}
+
+.board {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	width: 100vw;
+}
+
+#container {
+	position: relative;
+	width: 100%; // Should we give it a max width? It could be useful to keep it like this if you're showing this on a huge monitor?
 }
 
 .card {
 	list-style: none;
-	
+	background: #fff;
+	padding: 24px;
+	border-radius: 8px;
+	text-align: center;
+	font-size: 2vw;
+	box-shadow:
+		0 1px 1px rgba(0,0,0,0.12), 
+		0 2px 2px rgba(0,0,0,0.12), 
+		0 4px 4px rgba(0,0,0,0.12), 
+		0 8px 8px rgba(0,0,0,0.12),
+		0 16px 16px rgba(0,0,0,0.12);
+		transition: transform 0.1s;
+}
+
+.card:hover {
+	transform: 
+		scale(1.08)
+		rotateZ(2deg);
+	cursor: pointer;
 }
