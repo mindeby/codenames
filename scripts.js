@@ -7,7 +7,7 @@ let randomWords = [];
 
 const getRandomWords = () => {
     while (randomWords.length < numberOfCards) {
-        let number = Math.floor(Math.random() * (words.length + 1) ); 
+        let number = Math.floor(Math.random() * (words.length - 1) ); 
         if (!randomWords.includes(words[number])) {
             randomWords.push(words[number]);
         }

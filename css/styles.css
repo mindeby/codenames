@@ -5,5 +5,17 @@
 ////////////////////////////////////////////
 
 body {
-	background: #fafafa;
+	background: radial-gradient(#f2ca0f, #5a0032);
+}
+
+ul {
+	display: grid;
+	padding: 0;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: auto auto auto auto auto;
+}
+
+.card {
+	list-style: none;
+	
 }
