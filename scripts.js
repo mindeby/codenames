@@ -105,8 +105,8 @@ const checkScore = () => {
                 unflippedB.push(card);
             }
         }
-        teamA.innerText = `${teams[0]}: ${unflippedA.length} left`;
-        teamB.innerText = `${teams[1]}: ${unflippedB.length} left`;
+        teamA.innerText = `${unflippedA.length} agents left`;
+        teamB.innerText = `${unflippedB.length} agents left`;
     });
 
     //Check for win
@@ -119,11 +119,21 @@ const checkScore = () => {
 
 document.getElementById('endTurn').addEventListener("click", function(){ 
     console.log(currentPlayer);
+    const teamA = document.getElementById('teamA');
+    const teamB = document.getElementById('teamB');
     currentPlayer == teams[0] ? currentPlayer = teams[1] : currentPlayer = teams[0];
-    document.getElementById('currentPlayer').innerText = `CurrentPlayer:${currentPlayer}`;
+    document.getElementById('currentPlayer').innerText = `${currentPlayer}`;
+    if (currentPlayer == teams[0]) {
+        teamA.classList.add('active-turn');
+        teamB.classList.remove('active-turn');
+    } else {
+        teamB.classList.add('active-turn');
+        teamA.classList.remove('active-turn');
+    }
 })
 
 
 getRandomWords();
 createBoard();
 assignCards();
+checkScore();
